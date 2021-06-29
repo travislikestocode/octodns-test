@@ -18,6 +18,3 @@ zones:
       - config
     targets:
       - etchosts
-
-  example.net:
-    alias: example.com.
