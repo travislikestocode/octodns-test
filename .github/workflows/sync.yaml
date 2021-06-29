@@ -3,6 +3,7 @@ name: octodns-sync
 on:
   # Deploy config whenever DNS changes are pushed to main.
   push:
+  pull_request:
 
 jobs:
   publish:
@@ -14,6 +15,6 @@ jobs:
         uses: solvaholic/octodns-sync@main
         with:
           config_path: config/test.yaml
-          doit: '--doit'
+          doit: ${{ github.event_name == 'pull_request'  && 'No' || '--doit' }}
           add_pr_comment: 'Yes'
       - run: cat ./hosts/example.com.hosts
