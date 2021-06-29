@@ -14,9 +14,6 @@ providers:
   etchosts:
     class: octodns.provider.etc_hosts.EtcHostsProvider
     directory: ./hosts
-  etchosts2:
-    class: octodns.provider.etc_hosts.EtcHostsProvider
-    directory: ./hosts2
 
 zones:
   example.com.:
@@ -24,4 +21,3 @@ zones:
       - config
     targets:
       - etchosts
-      - etchosts2
