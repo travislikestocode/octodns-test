@@ -15,4 +15,5 @@ jobs:
         with:
           config_path: config/test.yaml
           doit: '--doit'
+          add_pr_comment: 'Yes'
       - run: cat ./hosts
