@@ -3,10 +3,6 @@ name: octodns-sync
 on:
   # Deploy config whenever DNS changes are pushed to main.
   push:
-    branches:
-      - main
-    paths:
-      - '*.yaml'
 
 jobs:
   publish:
