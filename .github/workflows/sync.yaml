@@ -32,4 +32,7 @@ jobs:
       - run: cat ./hosts2/example.com.hosts
       
       - name: 'Get publish1 plan'
-        run: echo ${{ steps.publish1.outputs.plan }}
+        run: |
+          cat << EOF
+          ${{ steps.publish1.outputs.plan }}
+          EOF
