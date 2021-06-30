@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Publish
-        uses: solvaholic/octodns-sync@main
+        uses: travislikestocode/octodns-sync@57-support-multiple-runs
         with:
           config_path: config/test.yaml
           doit: ${{ github.event_name == 'pull_request'  && 'No' || '--doit' }}
@@ -22,7 +22,7 @@ jobs:
       - run: cat ./hosts/example.com.hosts
       
       - name: Publish2
-        uses: solvaholic/octodns-sync@main
+        uses: travislikestocode/octodns-sync@57-support-multiple-runs
         with:
           config_path: config/test2.yaml
           doit: ${{ github.event_name == 'pull_request'  && 'No' || '--doit' }}
