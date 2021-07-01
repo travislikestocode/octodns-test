@@ -1,32 +1,23 @@
-name: octodns-sync
+name: octodns-sync pull_request
 
 on:
   pull_request:
 
 jobs:
-  publish:
-    name: Publish DNS config
+  sync-pr:
+    name: Sync pull_request
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        doit: ['No', '--doit']
+        footer: ['No', 'Yes']
     steps:
       - uses: actions/checkout@v2
-      - name: Publish
+      - name: octodns-sync
         uses: travislikestocode/octodns-sync@comment-formatting
         with:
-          config_path: config/test.yaml
-          doit: 'No'
+          config_path: config/cfg.yaml
+          doit: '${{ matrix.doit }}'
           add_pr_comment: 'Yes'
           pr_comment_token: '${{ github.token }}'
-
-  publish2:
-    name: Publish the other DNS config
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - name: Publish
-        uses: travislikestocode/octodns-sync@comment-formatting
-        with:
-          config_path: config/test.yaml
-          doit: '--doit'
-          add_pr_comment: 'Yes'
-          pr_comment_token: '${{ github.token }}'
-          add_pr_comment_footer: 'No'
+          add_pr_comment_footer: '${{ matrix.footer }}
