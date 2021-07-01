@@ -16,7 +16,7 @@ providers:
     directory: ./hosts
 
 zones:
-  pr-footer.tld.:
+  example.com.:
     sources:
       - config
     targets:
