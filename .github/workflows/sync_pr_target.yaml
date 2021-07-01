@@ -17,7 +17,7 @@ jobs:
         uses: travislikestocode/octodns-sync@comment-formatting
         with:
           config_path: config/cfg.yaml
-          doit: '${{ matrix.doit }}'
+          doit: ${{ matrix.doit }}
           add_pr_comment: 'Yes'
           pr_comment_token: '${{ github.token }}'
-          add_pr_comment_footer: '${{ matrix.footer }}'
+          add_pr_comment_footer: ${{ matrix.footer }}
